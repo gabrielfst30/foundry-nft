@@ -1,15 +1,78 @@
-# Foundry NFT
+```markdown
+# 🎭 Mood NFT Collection
 
-## Happy SVG:
-```
-data:image/svg+xml;base64,PHN2Zw0KICB2aWV3Qm94PSIwIDAgMjAwIDIwMCINCiAgd2lkdGg9IjQwMCINCiAgaGVpZ2h0PSI0MDAiDQogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyINCj4NCiAgPGNpcmNsZQ0KICAgIGN4PSIxMDAiDQogICAgY3k9IjEwMCINCiAgICBmaWxsPSJ5ZWxsb3ciDQogICAgcj0iNzgiDQogICAgc3Ryb2tlPSJibGFjayINCiAgICBzdHJva2Utd2lkdGg9IjMiDQogIC8+DQogIDxnIGNsYXNzPSJleWVzIj4NCiAgICA8Y2lyY2xlIGN4PSI2MSIgY3k9IjgyIiByPSIxMiIgLz4NCiAgICA8Y2lyY2xlIGN4PSIxMjciIGN5PSI4MiIgcj0iMTIiIC8+DQogIDwvZz4NCiAgPHBhdGgNCiAgICBkPSJtMTM2LjgxIDExNi41M2MuNjkgMjYuMTctNjQuMTEgNDItODEuNTItLjczIg0KICAgIHN0eWxlPSJmaWxsOm5vbmU7IHN0cm9rZTogYmxhY2s7IHN0cm9rZS13aWR0aDogMzsiDQogIC8+DQo8L3N2Zz4=
+Mood NFT Collection é um projeto de smart contract desenvolvido como uma coleção simples de NFTs que representam diferentes “moods” (estados de humor).  
+O objetivo é demonstrar, de forma direta, o fluxo completo de criação, mintagem e estruturação de uma coleção NFT utilizando Solidity e Foundry.
+
+---
+
+## 🚀 Tecnologias Utilizadas
+- **Solidity** – Desenvolvimento do smart contract ERC-721  
+- **Foundry (Forge/Anvil)** – Testes, simulação e ambiente de desenvolvimento  
+- **Scripts de Deploy** – Automação de implantação e interação  
+- **Assets Locais** – Imagens armazenadas no diretório `/images`  
+
+---
+
+## 🔧 Funcionalidades Principais
+- **Mintagem de NFTs** baseada em moods pré-definidos  
+- **Estrutura simples para criação de coleções temáticas**  
+- **Testes automatizados com Foundry** garantindo comportamento previsível  
+- **Scripts de deploy e interação prontos para uso**  
+- **Organização clara para expansão futura (metadata, IPFS, traits, etc.)**
+
+---
+
+## 📂 Estrutura do Projeto
+
 ```
 
-## Sad SVG:
-```
-data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAyNHB4IiBoZWlnaHQ9IjEwMjRweCIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBmaWxsPSIjMzMzIiBkPSJNNTEyIDY0QzI2NC42IDY0IDY0IDI2NC42IDY0IDUxMnMyMDAuNiA0NDggNDQ4IDQ0OCA0NDgtMjAwLjYgNDQ4LTQ0OFM3NTkuNCA2NCA1MTIgNjR6bTAgODIwYy0yMDUuNCAwLTM3Mi0xNjYuNi0zNzItMzcyczE2Ni42LTM3MiAzNzItMzcyIDM3MiAxNjYuNiAzNzIgMzcyLTE2Ni42IDM3Mi0zNzIgMzcyeiIvPgogIDxwYXRoIGZpbGw9IiNFNkU2RTYiIGQ9Ik01MTIgMTQwYy0yMDUuNCAwLTM3MiAxNjYuNi0zNzIgMzcyczE2Ni42IDM3MiAzNzIgMzcyIDM3Mi0xNjYuNiAzNzItMzcyLTE2Ni42LTM3Mi0zNzItMzcyek0yODggNDIxYTQ4LjAxIDQ4LjAxIDAgMCAxIDk2IDAgNDguMDEgNDguMDEgMCAwIDEtOTYgMHptMzc2IDI3MmgtNDguMWMtNC4yIDAtNy44LTMuMi04LjEtNy40QzYwNCA2MzYuMSA1NjIuNSA1OTcgNTEyIDU5N3MtOTIuMSAzOS4xLTk1LjggODguNmMtLjMgNC4yLTMuOSA3LjQtOC4xIDcuNEgzNjBhOCA4IDAgMCAxLTgtOC40YzQuNC04NC4zIDc0LjUtMTUxLjYgMTYwLTE1MS42czE1NS42IDY3LjMgMTYwIDE1MS42YTggOCAwIDAgMS04IDguNHptMjQtMjI0YTQ4LjAxIDQ4LjAxIDAgMCAxIDAtOTYgNDguMDEgNDguMDEgMCAwIDEgMCA5NnoiLz4KICA8cGF0aCBmaWxsPSIjMzMzIiBkPSJNMjg4IDQyMWE0OCA0OCAwIDEgMCA5NiAwIDQ4IDQ4IDAgMSAwLTk2IDB6bTIyNCAxMTJjLTg1LjUgMC0xNTUuNiA2Ny4zLTE2MCAxNTEuNmE4IDggMCAwIDAgOCA4LjRoNDguMWM0LjIgMCA3LjgtMy4yIDguMS03LjQgMy43LTQ5LjUgNDUuMy04OC42IDk1LjgtODguNnM5MiAzOS4xIDk1LjggODguNmMuMyA0LjIgMy45IDcuNCA4LjEgNy40SDY2NGE4IDggMCAwIDAgOC04LjRDNjY3LjYgNjAwLjMgNTk3LjUgNTMzIDUxMiA1MzN6bTEyOC0xMTJhNDggNDggMCAxIDAgOTYgMCA0OCA0OCAwIDEgMC05NiAweiIvPgo8L3N2Zz4K
+mood-nft-collection/
+├── images/        # Assets da coleção
+├── src/           # Smart contract principal
+├── script/        # Scripts de deploy e execução
+├── test/          # Testes automatizados (Foundry)
+├── lib/           # Dependências externas
+└── README.md
+
+````
+
+---
+
+## 🧪 Como Executar Localmente
+
+### 1. Instale o Foundry
+Siga as instruções oficiais:
+https://book.getfoundry.sh/getting-started/installation
+
+### 2. Clone o repositório
+```bash
+git clone https://github.com/gabrielfst30/mood-nft-collection
+cd mood-nft-collection
+````
+
+### 3. Compile os contratos
+
+```bash
+forge build
 ```
 
-## Uso no código:
+### 4. Execute os testes
 
-Para usar no Solidity, copie as strings completas (cada uma em uma única linha).
+```bash
+forge test
+```
+
+### 5. Faça o deploy (opcional)
+
+Ajuste o script em `script/` e execute:
+
+```bash
+forge script script/MoodNft.s.sol --rpc-url <RPC_URL> --private-key <KEY> --broadcast
+```
+
+---
+
+## 🧑‍💻 Sobre o Projeto
+
+Este projeto foi criado como estudo prático para desenvolvimento de coleções NFT utilizando Foundry, servindo como base para coleções maiores, proof-of-concepts e integrações com dApps Web3.
