@@ -25,7 +25,6 @@ O objetivo é demonstrar, de forma direta, o fluxo completo de criação, mintag
 
 ## 📂 Estrutura do Projeto
 
-```
 
 mood-nft-collection/
 ├── images/        # Assets da coleção
@@ -34,8 +33,6 @@ mood-nft-collection/
 ├── test/          # Testes automatizados (Foundry)
 ├── lib/           # Dependências externas
 └── README.md
-
-````
 
 ---
 
